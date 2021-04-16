@@ -265,3 +265,16 @@ strong{
     clear: both;
     margin-bottom: 70px;
 }
+.cm-msg-btn-text {
+  padding:10px 15px 10px 15px;  
+  color:white;
+  background: #FF9633;
+  max-width:75%;
+  float:left;
+  margin-left:10px; 
+  position:relative;
+  margin-bottom:20px;
+  border-radius:10px;
+  box-shadow: 1px 2px 3px gray;
+  cursor: pointer;
+}
