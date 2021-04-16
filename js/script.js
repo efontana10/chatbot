@@ -1,4 +1,5 @@
 $(function() {
+	var first_open = true;
   var INDEX = 0; 
   $("#chat-submit").click(function(e) {
     e.preventDefault();
@@ -61,6 +62,15 @@ $(function() {
 				if (val[i].hasOwnProperty("text")) {
 					msg+=val[i].text+"<br>";
 				}
+				
+				//check if there are buttons
+				if (val[i].hasOwnProperty("buttons")) {
+					//generate buttons
+					for (j = 0; j < val[i].buttons.length; j++) {
+						msg+="<\/div><\/div>"
+						msg+=generate_choice_btn(val[i].buttons[j].title, val[i].buttons[j].payload.substring(1))
+					}
+				}
 
 				//check if there is image
 				if (val[i].hasOwnProperty("image")) {
@@ -84,17 +94,33 @@ $(function() {
     $(".chat-logs").stop().animate({ scrollTop: $(".chat-logs")[0].scrollHeight}, 1000);    
   }  
   
-
+  function generate_choice_btn(txt, payload) {
+	var str="";
+	//id of btn = "index of the generating msg"_"num of choice" 
+	str += "<div class=\"cm-msg-button\">";
+    //str += "          <div class=\"cm-msg-button\">";
+    str += "          	<div id="+payload+" class=\"cm-msg-btn-text\" \">";
+	str += txt;
+    str += "          	<\/div>";
+    //str += "          <\/div>";
+	str += "        <\/div>";
+	return str
+	
+  }
   
-  $(document).delegate(".chat-btn", "click", function() {
-    var value = $(this).attr("chat-value");
+  $(document).delegate(".cm-msg-btn-text", "click", function() {
+    var value = this.id;
     var name = $(this).html();
     $("#chat-input").attr("disabled", false);
-    generate_message(name, 'self');
+	sayToBot("/"+value);
+    //generate_message(name, 'self');
   })
   
   $("#chat-circle").click(function() {    
-	sayToBot('ciao');
+	if(first_open){ 
+		sayToBot('ciao');
+		first_open = false;
+		}
     $("#chat-circle").toggle('scale');
     $(".chat-box").toggle('scale');
   })
