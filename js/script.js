@@ -18,7 +18,7 @@ $(function() {
   function sayToBot(message) {
     console.log("User Message:", message)
     $.ajax({
-      url: 'http://rasabot.betacomservices.com/webhooks/rest/webhook',
+      url: 'https://rasabot.betacomservices.com/webhooks/rest/webhook',
       type: 'POST',
       contentType: 'application/json',
       data: JSON.stringify({
