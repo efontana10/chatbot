@@ -32,7 +32,7 @@ $(function() {
         }
       },
       error: function (errorMessage) {
-        msg="Non riesco a connettermi al server :( Prova di nuovo.";
+        msg="Si è verificato un errore";
         generate_message(msg, "user");
         console.log('Error : ' + errorMessage);
   
