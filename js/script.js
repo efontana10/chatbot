@@ -26,7 +26,7 @@ $(function() {
         "sender": "user"
       }),
       success: function (data, textStatus) {
-        if(data != null || data.length !=0){
+        if(data != null && data.length !=0){
             console.log("Success : "+data);
             generate_message(data,'user');
         }
