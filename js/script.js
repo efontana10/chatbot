@@ -1,4 +1,10 @@
 $(function() {
+	var ID = function () {
+	  // Math.random should be unique because of its seeding algorithm.
+	  // Convert it to base 36 (numbers + letters), and grab the first 9 characters
+	  // after the decimal.
+	  return '_' + Math.random().toString(36).substr(2, 9);
+	};
 	var first_open = true;
   var INDEX = 0; 
   $("#chat-submit").click(function(e) {
@@ -23,7 +29,7 @@ $(function() {
       contentType: 'application/json',
       data: JSON.stringify({
         "message": message,
-        "sender": "user"
+        "sender": ID
       }),
       success: function (data, textStatus) {
         if(data != null && data.length !=0){
