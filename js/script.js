@@ -112,7 +112,12 @@ $(function() {
     var value = this.id;
     var name = $(this).html();
     $("#chat-input").attr("disabled", false);
-	sayToBot("/"+value);
+	if(value != "restart"){
+	  sayToBot("/"+value);
+	} else {
+		sayToBot("/"+value);
+		generate_message("Ok, a presto!", "user");	
+	}
     //generate_message(name, 'self');
   })
   
