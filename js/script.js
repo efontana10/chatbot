@@ -113,7 +113,10 @@ $(function() {
   }
   
   $(document).delegate(".cm-msg-btn-text", "click", function() {
-    var value = this.id;
+    document.querySelectorAll('div.cm-msg-btn-text').forEach(elem => {
+	  elem.disabled = true;
+	});
+	var value = this.id;
     var name = $(this).html();
     $("#chat-input").attr("disabled", false);
   // check if we need to restart the conversation
