@@ -61,6 +61,11 @@ $(function() {
     }
     else
     {
+		val.sort(function(a, b) {
+		x = (a.buttons !== null && a.buttons !== undefined) ? a.buttons.length : 0;
+		y = (b.buttons !== null && b.buttons !== undefined) ? b.buttons.length : b;
+			return x - y;
+		});
       for (i = 0; i < val.length; i++) {
         //check if there is text message
         if (val[i].hasOwnProperty("text")) {
