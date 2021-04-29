@@ -63,8 +63,8 @@ $(function() {
     {
 		val.sort(function(a, b) {
 		x = (a.buttons !== null && a.buttons !== undefined) ? a.buttons.length : 0;
-		y = (b.buttons !== null && b.buttons !== undefined) ? b.buttons.length : b;
-			return x - y;
+		y = (b.buttons !== null && b.buttons !== undefined) ? b.buttons.length : 0;
+		return x - y;
 		});
       for (i = 0; i < val.length; i++) {
         //check if there is text message
