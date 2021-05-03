@@ -23,6 +23,7 @@ $(function() {
     console.log("User Message:", message)
     $.ajax({
       url: 'https://rasabot.betacomservices.com/webhooks/rest/webhook',
+      // url: 'http://localhost:5005/webhooks/rest/webhook',
       type: 'POST',
       contentType: 'application/json',
       data: JSON.stringify({
@@ -61,6 +62,11 @@ $(function() {
     }
     else
     {
+		val.sort(function(a, b) {
+		x = (a.buttons !== null && a.buttons !== undefined) ? a.buttons.length : 0;
+		y = (b.buttons !== null && b.buttons !== undefined) ? b.buttons.length : 0;
+		return x - y;
+		});
       for (i = 0; i < val.length; i++) {
         //check if there is text message
         if (val[i].hasOwnProperty("text")) {
@@ -113,7 +119,10 @@ $(function() {
   }
   
   $(document).delegate(".cm-msg-btn-text", "click", function() {
-    var value = this.id;
+    document.querySelectorAll('div.cm-msg-btn-text').forEach(elem => {
+	  elem.disabled = true;
+	});
+	var value = this.id;
     var name = $(this).html();
     $("#chat-input").attr("disabled", false);
   // check if we need to restart the conversation
@@ -128,7 +137,7 @@ $(function() {
   
   $("#chat-circle").click(function() {
   if(first_open){ 
-    sayToBot('ciao');
+    sayToBot('buongiorno');
     first_open = false;
     }
     $("#chat-circle").toggle('scale');

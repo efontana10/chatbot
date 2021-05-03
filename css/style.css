@@ -67,8 +67,8 @@ margin-top: 8px;
     padding-top: 13px;
     padding-bottom: 12px;
     border-radius: 45px;
-    padding-right: 40px;
-    padding-left: 40px;
+    padding-right: 40px !important;
+    padding-left: 40px !important;
     color: #5865C3;
 	position: relative;
 	z-index: 1000;
@@ -113,8 +113,8 @@ strong{
 	border-top-right-radius: 5px;
 	color: white;
 	font-size: 20px;
-	padding-top: 13px;
-  padding-left: 10px;
+	padding-top: 13px !important;
+  padding-left: 10px !important;
   box-shadow: 0px 3px 3px -1px gray;
 }
 .chat-box-body {
@@ -183,7 +183,7 @@ strong{
   height:35px;  
 }
 .chat-logs {
-  padding:15px; 
+  padding:15px !important; 
   height:370px;
   overflow-y:auto;
 }
@@ -236,13 +236,13 @@ strong{
 }
 .cm-msg-text {
   background:white;
-  padding:10px 15px 10px 15px;  
+  padding:10px 15px 10px 15px !important;  
   color:#666;
   max-width:75%;
   float:left;
   margin-left:10px; 
   position:relative;
-  margin-bottom:20px;
+  margin-bottom:20px !important;
   border-radius:10px;
   box-shadow: 1px 2px 3px gray;
 }
@@ -263,17 +263,17 @@ strong{
 }
 .cm-msg-button {
     clear: both;
-    margin-bottom: 70px;
+    margin-bottom: 70px ;
 }
 .cm-msg-btn-text {
-  padding:10px 15px 10px 15px;  
+  padding:10px 15px 10px 15px !important;  
   color:white;
   background: #FF9633;
   max-width:75%;
   float:left;
   margin-left:10px; 
   position:relative;
-  margin-bottom:20px;
+  margin-bottom:20px !important;
   border-radius:10px;
   box-shadow: 1px 2px 3px gray;
   cursor: pointer;
